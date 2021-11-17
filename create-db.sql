@@ -14,7 +14,8 @@ INSERT INTO user(username, password, user_type) VALUES
 ('iheartchrisx3', 'Check_93_Drag_Debate', 'User'),
 ('spidermanisdabest', 'Duty.Student.61.Habit', 'User'),
 ('brucebanner', 'Kiss_44_Lawyer_Internal', 'User'),
-('sciencebros', '81_Gather_Transition', 'User')
+('sciencebros', '81_Gather_Transition', 'User');
+
 
 CREATE TABLE appointments (
     movie_title             text,
@@ -29,6 +30,7 @@ INSERT INTO appointments (movie_title, appointment_date, appointment_time, host,
 ('Avengers: Age of Ultron', '12-12-2021', '2300', 'sciencebros', 'brucebanner'),
 ('Black Panther', '20-11-2021', '1800', 'marvelluver', 'sindhubijj1120');
 
+
 CREATE TABLE movies (
     movie_title     text,
     year            varchar(4),
@@ -41,7 +43,7 @@ INSERT INTO movies(movie_title, year, lead_actor) VALUES
 ('Iron Man 2', '2010', 'Robery Downey Jr.'),
 ('Thor', '2011', 'Chris Hemsworth'),
 ('Captain America: The First Avenger', '2011', 'Chris Evans'),
-('The Avengers', '2012' 'Robert Downey Jr.'),
+('The Avengers', '2012', 'Robert Downey Jr.'),
 ('Iron Man 3', '2013', 'Robert Downey Jr.'),
 ('Thor: The Dark World', '2013', 'Chris Hemsworth'),
 ('Captain America: The Winter Soldier', '2014', 'Chris Evans'),
@@ -63,13 +65,15 @@ INSERT INTO movies(movie_title, year, lead_actor) VALUES
 ('Shang-Chi and The Legend of The Ten Rings', '2021', 'Simu Liu'),
 ('Eternals', '2021', 'Gemma Chan');
 
+
+
 CREATE TABLE reviews (
     username        text,
     movie_title     text,
     star_rating     integer,
     comment         text
 );
--- sample data 
+
 INSERT INTO reviews(username, movie_title, star_rating, comment) VALUES
 ('mritthika_harish','Iron Man', '4', 'Great Movie!'),
 ('shivali_aggarwal', 'Shang-Chi and The Legend of The Ten Rings', '5', 'Excellent'),
@@ -82,13 +86,14 @@ INSERT INTO reviews(username, movie_title, star_rating, comment) VALUES
 ('spidermanisdabest', 'Spider-Man: Far From Home','5','dont know if i want to be tom holland or zendaya'),
 ('iheartchrisx3', 'Thor','4','OMG CHRIS HEMSWORTH!');
 
+
 CREATE TABLE bookmarked (
     movie_title     text,
-    year            varchar(4),
+    release_year            varchar(5),
     username        text
 );
-INSERT INTO bookmarked(movie_title, year, username) VALUES
-('Shang-Chi and The Legend of The Ten Rings', '2021', 'sindhubijj1120')
+INSERT INTO bookmarked (movie_title, release_year, username) VALUES
+('Shang-Chi and The Legend of The Ten Rings', '2021', 'sindhubijj1120'),
 ('Captain America: The First Avenger', '2011', 'sindhubijj1120'),
 ('Black Panther', '2018', 'sindhubijj1120'),
 ('Eternals', '2021', 'sindhubijj1120'),
@@ -96,9 +101,10 @@ INSERT INTO bookmarked(movie_title, year, username) VALUES
 ('Thor: The Dark World', '2013', 'iheartchrisx3'),
 ('Thor: Ragnarok', '2017', 'iheartchrisx3'),
 ('Captain America: The First Avenger', '2011', 'marvelluver'),
-('The Avengers', '2012' 'princess_shavzz'),
-('Thor: The Dark World', '2013', 'demifan0422')
+('The Avengers', '2012', 'princess_shavzz'),
+('Thor: The Dark World', '2013', 'demifan0422'),
 ('Shang-Chi and The Legend of The Ten Rings', '2021', 'brucebanner');
+
 
 CREATE TABLE franchise (
     movie_title     text,
