@@ -1,5 +1,6 @@
 -- user or admin makes an accounts
-
+insert into user (username, password, user_type) values 
+('joe_bob', 'sqlpassword', 'user');
 
 -- user or admin searches for movies under the Iron Man franchise
 select movies.movie_title
