@@ -1,63 +1,112 @@
--- user make account
+-- user or admin makes an accounts
 
--- admin make account 
 
--- user login
+-- user or admin searches for movies under the Iron Man franchise
+select movies.movie_title
+from franchise, movies
+where franchise.movie_key = movies.movie_key
+and franchise.franchise_name = 'Iron Man';
 
--- admin login 
+-- user or admin search for movies released in the year 2021
+select movie_title
+from movies
+where release_year = '2021';
 
--- user search movie by franchise
+-- user or admin search for a movie based on the title Black Panther
+select movie_title
+from movie
+where movie_title = 'Black Panther';
 
--- admin search movie by franchise
+-- user or admin search movie by the movie key for Captain America: Civil War
+select movie_title 
+from movie
+where movie_key = '0013';
 
--- user search movie by year
+-- user or admin reviews movies (including ratings out of 5 and comments)
+insert into reviews (username, movie_title, movie_key, star_rating, comment) values 
+    -- admin 
+('mritthika_harish','Doctor Strange', '0014', '5', 'SUCH a good movie'),
+    -- user 
+('sciencebros','Avengers: Age of Ultron', '0011', '4', 'love me some tony and bruce sciencebro action'),
 
--- admin search movie by year
 
--- user search movie by title
+-- user or admin creates appointment
+insert into appointments (appointment_key, movie_title, movie_key, appointment_date, appointment_time, host, guest) values 
+    -- admin    
+('1003', 'Shang-Chi and The Legend of The Ten Rings', '0025', '18-11-2021', '2300', 'shivali_aggarwal', 'mritthika_harish'),
+    -- user 
+('1004', 'Ant-Man', '0012', '22-12-2021', '0500', 'demifan0422', 'princess_shavzz');
 
--- admin search movie by title
+-- user or admin cancels appointment
+delete from appointments where appointment_key = '1000';
 
--- user search movie by movie key
+-- user or admin bookmarks movies by the year 2010
+select release_year
+from movies
+where release_year = '2010';
 
--- admin search movie by movie
+insert into bookmarked (movie_key, movie_title, franchise, release_year, username) values 
+('0003', 'Iron Man 2', 'Iron Man', '2010', 'demifan0422'); 
 
--- user comments on movies
+-- user or admin bookmarks movies by movie key to watch Spider-Man: Far From Home
+select movie_key
+from movies 
+where movie_key = '0023';
 
--- admin comments on movies
+insert into bookmarked (movie_key, movie_title, franchise, release_year, username) values
+('0023', 'Spider-Man: Far From Home', 'Spiderman', '2019', 'spidermanisdabest');
 
--- user scores movies /5
+-- user or admin bookmarks movies by the Guardians of the Galaxy Franchise
+select movies.movie_title
+from movies, franchise
+where franchise.franchise_name = 'Guardians of the Galaxy'
+and movies.movie_key = franchise.movie_key
+and movies.movie_title = franchise.movie_title;
 
--- admin scores movies /5
+insert into bookmarked (movie_key, movie_title, franchise, release_year, username) values
+('0010', 'Guardians of the Galaxy', 'Guardians of the Galaxy', '2014', 'marvelluver'),
+('0015', 'Guardians of the Galaxy Vol. 2', 'Guardians of the Galaxy', '2017', 'marvelluver');
 
--- user makes appt
+-- user or admin bookmarks movies by title
+insert into bookmarked (movie_key, movie_title, release_year, username) values
+    -- admin 
+('0011', 'Avengers: Age of Ultron', '2015', 'shivali_aggarwal'),
+    -- user 
+('0023', 'Spider-Man: Far From Home', '2019', 'spidermanisdabest');
 
--- admin makes appt
+-- admin adds the newest series of marvel movies because of the upcoming releases
+insert into movies(movie_key, movie_title, year, lead_actor) values
+('0027','Spider-Man: No Way Home','2021','Tom Holland'),
+('0028','Doctor Strange in the Multiverse of Madness','2022','Benedict Cumberbatch'),
+('0029','Thor: Love and Thunder','2022','Chris Hemsworth'),
+('0030','Black Panther: Wakanda Forever','2022','Letitia Wright'),
+('0031','The Marvels','2023','Brie Larson'),
+('0032','Blade','TBD','Mahershala Ali'),
+('0033','Ant-Man and The Wasp: Quantumania','2023','Paul Rudd'),
+('0034','Fantastic Four','TBD','John Krasinski');
 
--- user cancels appt
+-- admin deletes the incredible hulk from the tables because of the many negative reviews
 
--- admin cancels appt
+delete from movies where movie_title = 'The Incredible Hulk';
+delete from movies where movie_title = 'The Incredible Hulk';
+delete from  reviews where movie_title = 'The Incredible Hulk';
 
--- user invites other users to appt
+-- admin removes black panther from the misc franchise 
 
--- admin invites other user to appt 
+delete from franchise where movie_title = 'Black Panther';
 
--- user bookmarks movies by year
+--admin adds black panther to a new black panther franchise with the new movie
 
--- admin bookmarks movies by year
+insert into franchise(movie_key, movie_title, franchise_name) values
+('0018', 'Black Panther','Black Panther'),
+('0030', 'Black Panther: Wakanda Forever', 'Black Panther');
 
--- user bookmarks movies by movie key
+--admin removes captain marvel from the misc franchise 
 
--- admin bookmarks movies by movie key
+delete from franchise where movie_title = 'Captain Marvel';
 
--- user bookmarks movies by franchise
+--admin adds captain marvel to a new captain marvel franchise with the new movie
 
--- admin bookmarks movies by franchise
-
--- user bookmarks movies by title
-
--- admin bookmarks movies by title
-
--- admin adds movies
-
--- admin deletes movies
+insert into franchise(movie_key, movie_title, franchise_name) values
+('0021', 'Captain Marvel','Captain Marvel'),
+('0031', 'The Marvels','Captain Marvel');

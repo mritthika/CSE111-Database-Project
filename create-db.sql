@@ -18,6 +18,7 @@ INSERT INTO user(username, password, user_type) VALUES
 
 
 CREATE TABLE appointments (
+    appointment_key         integer,
     movie_title             text,
     movie_key               integer,
     appointment_date        text, 
@@ -26,20 +27,20 @@ CREATE TABLE appointments (
     guest                   text
 );
 
-INSERT INTO appointments (movie_title, movie_key, appointment_date, appointment_time, host, guest) VALUES
-('Iron Man', '0001', '26-11-2021', '0900', 'mritthika_harish', 'shivali_aggarwal'),
-('Avengers: Age of Ultron', '0011', '12-12-2021', '2300', 'sciencebros', 'brucebanner'),
-('Black Panther', '0018', '20-11-2021', '1800', 'marvelluver', 'sindhubijj1120');
+INSERT INTO appointments (appointment_key, movie_title, movie_key, appointment_date, appointment_time, host, guest) VALUES
+('1000', 'Iron Man', '0001', '26-11-2021', '0900', 'mritthika_harish', 'shivali_aggarwal'),
+('1001', 'Avengers: Age of Ultron', '0011', '12-12-2021', '2300', 'sciencebros', 'brucebanner'),
+('1002', 'Black Panther', '0018', '20-11-2021', '1800', 'marvelluver', 'sindhubijj1120');
 
 
 CREATE TABLE movies (
     movie_key       int,
     movie_title     text,
-    year            varchar(4),
+    release_year    varchar(4),
     lead_actor      text
 );
 -- insert movie key 
-INSERT INTO movies(movie_key, movie_title, year, lead_actor) VALUES
+INSERT INTO movies(movie_key, movie_title, release_year, lead_actor) VALUES
 ('0001','Iron Man','2008','Robert Downey Jr.'),
 ('0002', 'The Incredible Hulk', '2008', 'Edward Norton'),
 ('0003','Iron Man 2', '2010', 'Robery Downey Jr.'),
@@ -68,7 +69,6 @@ INSERT INTO movies(movie_key, movie_title, year, lead_actor) VALUES
 ('0026','Eternals', '2021', 'Gemma Chan');
 
 
-
 CREATE TABLE reviews (
     username        text,
     movie_title     text,
@@ -93,23 +93,24 @@ INSERT INTO reviews(username, movie_title, movie_key, star_rating, comment) VALU
 CREATE TABLE bookmarked (
     movie_key       int,
     movie_title     text,
+    franchise       text,
     release_year    varchar(5),
-    username        text,
-    franchise       text
+    username        text
 );
---insert movie key, franchise
-INSERT INTO bookmarked (movie_key, movie_title, release_year, username) VALUES
-('0025', 'Shang-Chi and The Legend of The Ten Rings', '2021', 'sindhubijj1120'),
-('0005','Captain America: The First Avenger', '2011', 'sindhubijj1120'),
-('0018','Black Panther', '2018', 'sindhubijj1120'),
-('0026', 'Eternals', '2021', 'sindhubijj1120'),
-('0004', 'Thor', '2011', 'iheartchrisx3'),
-('0008', 'Thor: The Dark World', '2013', 'iheartchrisx3'),
-('0017', 'Thor: Ragnarok', '2017', 'iheartchrisx3'),
-('0005','Captain America: The First Avenger', '2011', 'marvelluver'),
-('0006', 'The Avengers', '2012', 'princess_shavzz'),
-('0008','Thor: The Dark World', '2013', 'demifan0422'),
-('0025', 'Shang-Chi and The Legend of The Ten Rings', '2021', 'brucebanner');
+
+INSERT INTO bookmarked (movie_key, movie_title, franchise, release_year, username) VALUES
+('0025', 'Shang-Chi and The Legend of The Ten Rings', 'Misc', '2021', 'sindhubijj1120'),
+('0005','Captain America: The First Avenger','Captain America', '2011', 'sindhubijj1120'),
+('0018','Black Panther','Misc', '2018', 'sindhubijj1120'),
+('0026', 'Eternals', 'Misc', '2021', 'sindhubijj1120'),
+('0004', 'Thor', 'Thor', '2011', 'iheartchrisx3'),
+('0008', 'Thor: The Dark World', 'Thor', '2013', 'iheartchrisx3'),
+('0017', 'Thor: Ragnarok', 'Thor', '2017', 'iheartchrisx3'),
+('0005','Captain America: The First Avenger', 'Captain America', '2011', 'marvelluver'),
+('0006', 'The Avengers','Avengers', '2012', 'princess_shavzz'),
+('0008','Thor: The Dark World','Thor', '2013', 'demifan0422'),
+('0025', 'Shang-Chi and The Legend of The Ten Rings', 'Misc', '2021', 'brucebanner');
+
 
 
 CREATE TABLE franchise (
