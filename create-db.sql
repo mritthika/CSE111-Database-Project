@@ -32,12 +32,13 @@ INSERT INTO appointments (movie_title, appointment_date, appointment_time, host,
 
 
 CREATE TABLE movies (
+    movie_key       int,
     movie_title     text,
     year            varchar(4),
     lead_actor      text
 );
-
-INSERT INTO movies(movie_title, year, lead_actor) VALUES
+-- insert movie key 
+INSERT INTO movies(movie_key, movie_title, year, lead_actor) VALUES
 ('Iron Man','2008','Robert Downey Jr.'),
 ('The Incredible Hulk', '2008', 'Edward Norton'),
 ('Iron Man 2', '2010', 'Robery Downey Jr.'),
@@ -88,11 +89,14 @@ INSERT INTO reviews(username, movie_title, star_rating, comment) VALUES
 
 
 CREATE TABLE bookmarked (
+    movie_key       int,
     movie_title     text,
-    release_year            varchar(5),
-    username        text
+    release_year    varchar(5),
+    username        text,
+    franchise       text
 );
-INSERT INTO bookmarked (movie_title, release_year, username) VALUES
+--insert movie key, franchise
+INSERT INTO bookmarked (movie_key, movie_title, release_year, username) VALUES
 ('Shang-Chi and The Legend of The Ten Rings', '2021', 'sindhubijj1120'),
 ('Captain America: The First Avenger', '2011', 'sindhubijj1120'),
 ('Black Panther', '2018', 'sindhubijj1120'),

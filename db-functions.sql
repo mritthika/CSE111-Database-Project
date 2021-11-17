@@ -1,5 +1,15 @@
--- Update to add in new movies -- (8 Queries for 8 new films until 2024)
+-- Insert to add in new movies 
 
--- Delete Incredible Hulk (for all the bad reviews)
+-- Delete Movie (for all the bad reviews) (admin feature)
+
+-- Creating appointments (user, admin)
+
+-- Bookmarking movies (user)
+
+-- Leaving reviews (user, admin)
+
+-- 
+
+-- 
 
 -- 
