@@ -1,30 +1,30 @@
--- user or admin makes an accounts *
+-- user or admin makes an accounts 
 insert into user (username, password, user_type) values 
 ('kelvin_n', 'ilovemarvelsomuch', 'user');
 
--- user or admin searches for movies under the Iron Man franchise *
+-- user or admin searches for movies under the Iron Man franchise 
 select movies.movie_title
 from franchise, movies
 where franchise.movie_key = movies.movie_key
 and franchise.franchise_name = 'Iron Man';
 
--- user or admin searches for movies under movies that are NOT in a franchise *
+-- user or admin searches for movies under movies that are NOT in a franchise 
 select movies.movie_title
 from franchise, movies
 where franchise.movie_key = movies.movie_key
 and franchise.franchise_name = 'Misc';
 
--- user or admin search for movies released in the year 2021 *
+-- user or admin search for movies released in the year 2021 
 select movie_title
 from movies
 where release_year = '2021';
 
--- user or admin search for a movie based on the title Black Panther *
+-- user or admin search for a movie based on the title Black Panther 
 select movie_title
 from movies
 where movie_title = 'Black Panther';
 
--- user or admin search movie by the movie key for Captain America: Civil War *
+-- user or admin search movie by the movie key for Captain America: Civil War 
 select movie_title 
 from movies
 where movie_key = '0013';
@@ -118,20 +118,21 @@ insert into franchise(movie_key, movie_title, franchise_name) values
 ('0021', 'Captain Marvel','Captain Marvel'),
 ('0031', 'The Marvels','Captain Marvel');
 
---admin finds the number of franchises that has at least three films
-select count(at_least_three)
-from (select count(distinct franchise.franchise_name) as at_least_three
+--admin finds the number of movies that have at least two films
+select count(at_least_two)
+from (select count(distinct franchise.franchise_name) as at_least_two
       from movies, franchise
       where movies.movie_key = franchise.movie_key
       group by movies.movie_key
-      having count(franchise.franchise_name) <= 4);
+      having count(franchise.franchise_name) <= 2);
 
 
--- finding users that have preciously already had an appointment in this database
-select appointments.host, appointments.guest, appointments.appointment_key
+-- finding users that have previously participated in an appointment in this database
+select user.username
 from appointments, user
 where user.username = appointments.host
 or user.username = appointments.guest
 and appointments.appointment_key = (select count(appointments.appointment_key)
 from appointments, movies
-where movies.movie_title = appointments.movie_title);
+where movies.movie_title = appointments.movie_title)
+order by appointments.host;
