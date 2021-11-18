@@ -118,6 +118,14 @@ insert into franchise(movie_key, movie_title, franchise_name) values
 ('0021', 'Captain Marvel','Captain Marvel'),
 ('0031', 'The Marvels','Captain Marvel');
 
+
+-- admin updates franchise table 
+insert into franchise (movie_key, movie_title, franchise_name) values
+('0027', 'Spider-Man: No Way Home','Spider Man'),
+('0028','Doctor Strange in the Multiverse of Madness','Doctor Strange'),
+('0029','Thor: Love and Thunder','Thor'),
+('0033','Ant-Man and The Wasp: Quantumania','Ant-Man');
+
 --admin finds the number of movies that have at least two films
 select count(at_least_two)
 from (select count(distinct franchise.franchise_name) as at_least_two
