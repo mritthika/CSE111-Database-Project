@@ -16,6 +16,20 @@ INSERT INTO user(username, password, user_type) VALUES
 ('brucebanner', 'Kiss_44_Lawyer_Internal', 'User'),
 ('sciencebros', '81_Gather_Transition', 'User');
 
+-- add in table user_appt (a connection between user and appointment)
+CREATE TABLE user_appt(
+    host                text,
+    guest               text,
+    appointment_key     integer,
+    appointment_date    text,
+    appointment_time    datetime
+);
+
+INSERT INTO user_appt (host, guest, appointment_key, appointment_date, appointment_time) VALUES 
+('mritthika_harish', 'shivali_aggarwal', '1000', '26-11-2021', '0900'),
+('sciencebros', 'brucebanner', '1001', '12-12-2021', '2300'),
+('marvelluver', 'sindhubijj1120', '1002', '20-11-2021', '1800');
+
 
 CREATE TABLE appointments (
     appointment_key         integer,
@@ -32,6 +46,20 @@ INSERT INTO appointments (appointment_key, movie_title, movie_key, appointment_d
 ('1001', 'Avengers: Age of Ultron', '0011', '12-12-2021', '2300', 'sciencebros', 'brucebanner'),
 ('1002', 'Black Panther', '0018', '20-11-2021', '1800', 'marvelluver', 'sindhubijj1120');
 
+-- insert another table here - users and movies
+CREATE TABLE user_movies(
+    username            text,
+    movie_key_one       int,
+    movie_title_one     text,
+    movie_key_two       text,
+    movie_title_two     text
+);
+
+INSERT INTO user_movies(username, movie_key_one, movie_title_one, movie_key_two, movie_title_two) VALUES
+('sciencebros', '0006','The Avengers', '0007','Iron Man 3'),
+('shivali_aggarwal','0014','Doctor Strange', '0005', 'Captain America: The First Avenger'),
+('spidermanisdabest','0016','Spider-Man: Homecoming', '0023', 'Spider-Man: Far From Home' ),
+('iheartchrisx3', '0017','Thor: Ragnarok', '0009','Captain America: The Winter Soldier');
 
 CREATE TABLE movies (
     movie_key       int,
