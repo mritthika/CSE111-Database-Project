@@ -46,7 +46,7 @@ INSERT INTO appointments (appointment_key, movie_title, movie_key, appointment_d
 ('1001', 'Avengers: Age of Ultron', '0011', '12-12-2021', '2300', 'sciencebros', 'brucebanner'),
 ('1002', 'Black Panther', '0018', '20-11-2021', '1800', 'marvelluver', 'sindhubijj1120');
 
--- insert another table here - users and movies
+-- insert another table here (a connection between users and movies)
 CREATE TABLE user_movies(
     username            text,
     movie_key_one       int,

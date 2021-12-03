@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Murecho:wght@100;300;400;500;700;900&display=swap');
+
+:root {
+    --color-background: #000000;
+    --color-red: #ed1d24;
+    --color-white: #ffffff;
+    --color-gray: #504a4a;
+
+}
+
+html {
+    font-size: 16px;
+}
