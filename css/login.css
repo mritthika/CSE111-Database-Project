@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+:root {
+    --color-background: #000000;
+    --color-red: #ed1d24;
+    --color-white: #ffffff;
+    --color-less-white: #fafcff;
+    --color-gray: #504a4a;
+
+}
+
+* {
+    box-sizing: border-box;
+}
+/* general styling */
+html {
+    font-size: 16px;
+}
+
+body{
+    margin: 0px;
+    background: var(--color-background);
+}
+h1, h2, p {
+    font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    font-size: 3.75rem;
+    font-weight: 500;
+}
+
+h2 {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.grid-container {
+    display: grid;
+    height: 100vh;
+    margin-inline: 15vw;
+    grid-template: repeat(20, 1fr) / repeat(10, 1fr); /* rows / columns */
+}
+input {
+    display: block;
+    border: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    margin-block: 0.5rem;
+}
+
+input:focus {
+    outline: none;
+}
+
+.email-box, .password-box {
+    background: var(--color-cool-white);
+    width: 30rem;
+    border: 3px solid var(--color-logo-blue);
+    border-radius: 10px;
+    padding-left: 1rem;
+    margin-top: 1rem;
+}
+
+.email-box p, .password-box p {
+    margin: 5px 0 0 0;
+    font-size: 0.75rem;
+    color: var(--color-out-of-focus-dark);
+}
+
+.input-boxes {
+    margin-block: 4rem;
+}
+
+.options {
+    display: flex;
+    width: 30rem;
+    justify-content: space-between;
+    margin-block: 1rem;
+}
+
+.remember-me-group {
+    display: flex;
+}
+
+.options p, .options .remember-me-group input {
+    margin-block: 0;
+}
+
+.remember-me-group input {
+    margin-right: 0.5rem;
+}
+
+#forgot-password {
+    color: var(--color-red);
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 30rem;
+}
+
+.login-button, .create-account-button {
+    width: 14rem;
+    display: flex;
+    justify-content: center;
+    border: 3px solid var(--color-logo-red);
+    border-radius: 10px;
+}
+
+.login-button {
+    color: var(--color-white);
+    background: var(--color-red);
+}
+
+.create-account-button {
+    background: var(--color-cool-white);
+}
+
+.login-button:active, .create-account-button:active {
+    opacity: 0.8;
+}
+
+.login-button:hover, .create-account-button:hover {
+    cursor: pointer;
+}
+
+/* right side styles */
+.right {
+    grid-area: 1 / 6 / span 20 / span 5;
+    margin-right: -15vw;
+}
+
+.login-img-wrapper {
+    height: 100%;
+    width: 100%;
+    background-image: url("../pictures/marvel_logo.jpg");
+    background-position: center;
+    background-size: cover;
+}
