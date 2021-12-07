@@ -12,12 +12,12 @@ background: #000000;
 position: absolute;
 width: 68px;
 height: 27px;
-background: url(marvel_logo.jpg);
+background: url("marvel_logo.jpg");
 }
 
 /* MOVIE WATCHER */
 
-.moviewatched{
+.moviewatcher{
 position: absolute;
 width: 95px;
 height: 16px;
